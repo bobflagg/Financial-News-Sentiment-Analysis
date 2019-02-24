@@ -4,6 +4,7 @@ from spacy.tokens import Doc, Token
 from spacy.matcher import PhraseMatcher
 
 DEFAULT_LEX = 'nd'
+ACCEPTABLE_TYPES = ['ORG']
 
 class Lexicon(object):
 
@@ -18,7 +19,7 @@ class Lexicon(object):
     def __call__(self, text):
         doc = self.nlp(text)
         prepare(doc, self.lexicons)
-        for e in doc.ents: store_match(doc, 'en', e.label_, e.start, e.end, -1, True)
+        for e in doc.ents: store_match(doc, 'en', e.label_, e.start, e.end, -1, e.label_ in ACCEPTABLE_TYPES)
         self.match(doc)
         self.merge(doc)
         return doc
