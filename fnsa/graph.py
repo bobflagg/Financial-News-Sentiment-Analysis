@@ -3,13 +3,6 @@
 import math
 import networkx as nx
 
-def build_lex2tokens(doc):
-    lex2tokens = {}
-    for token in [token for token in doc if token._.lex != DEFAULT_LEX]:
-        lex = token._.lex
-        if lex not in lex2tokens: lex2tokens[lex] = []
-        lex2tokens[lex].append(token)
-    return lex2tokens
 
 def get_distance(graph, source, target):
     head = source.head

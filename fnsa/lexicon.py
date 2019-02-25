@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from fnsa.util import DEFAULT_LEX
 from spacy.tokens import Doc, Token
 from spacy.matcher import PhraseMatcher
 
-DEFAULT_LEX = 'nd'
 ACCEPTABLE_TYPES = ['ORG']
 
 class Lexicon(object):
@@ -68,7 +68,8 @@ class Lexicon(object):
                     stop -= delta
                     doc[start:stop].merge()
                     delta += stop - start - 1
-        
+
+                    
 class CallBack():
     def __init__(self, nlp, lexicon, category):
         self.nlp = nlp
@@ -90,6 +91,7 @@ class CallBack():
             self.set_matched(doc)
             self.store_matches(doc, matches)
 
+            
 class Matcher():
 
     def __init__(self, nlp, lexicon, seen):
@@ -123,6 +125,7 @@ class Matcher():
         fp.close()
         return detection_map
 
+    
 def prepare(doc, lexicons):
     doc.user_data['entries'] = set([])
     doc.user_data['en2scope'] = {}
@@ -154,6 +157,6 @@ def extend_token():
     Token.set_extension('direction', default='=')
     Token.set_extension('influence', default='=')
     Token.set_extension('lps', default='?')
-    Token.set_extension('entity', default='?')
-    Token.set_extension('sentiment', default='=')
+    #Token.set_extension('entity', default='?')
+    #Token.set_extension('sentiment', default='=')
 
