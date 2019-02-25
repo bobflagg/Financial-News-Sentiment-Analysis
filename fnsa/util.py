@@ -2,7 +2,9 @@
 
 from nltk.tree import Tree
 
+ACCEPTABLE_TYPES = ['ORG']
 DEFAULT_LEX = 'nd'
+DEFAULT_LEXICONS = "fe fi dr if lm".split()
 
 def build_lex2tokens(doc):
     lex2tokens = {}

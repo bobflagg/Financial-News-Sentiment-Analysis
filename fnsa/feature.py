@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from fnsa.graph import make_graph
+from fnsa.lexicon import get_en2scope
 from fnsa.util import build_lex2tokens, DEFAULT_LEX
 
 
@@ -28,4 +29,24 @@ class FeatureExtractor(object):
         lex2tokens = build_lex2tokens(doc)
         for detector in self.detectors: detector(doc, graph, lex2tokens)
         project(doc)
-        return doc, [compute_feature(token) for token in doc]
+        return doc, self.compute_features(doc, lex2tokens)
+
+    def compute_features(self, doc, lex2tokens):
+        return [compute_feature(token) for token in doc]
+
+            
+class EntityFeatureExtractor(FeatureExtractor):
+
+    def compute_features(self, doc, lex2tokens):
+        en_scope_map = get_en2scope(doc)
+        entities = []
+        features = []
+        for entity in lex2tokens.get('en', []):
+            if entity._.accepted:
+                entities.append(entity)
+                tokens = [doc[j] for j in en_scope_map.get(entity.i, set([]))]
+                tokens = sorted(tokens, key=lambda t: t.i)
+                entity_features = [compute_feature(token) for token in tokens]
+                features.append(entity_features)
+        return entities, features
+

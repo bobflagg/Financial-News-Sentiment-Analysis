@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from fnsa.util import DEFAULT_LEX
+from fnsa.util import ACCEPTABLE_TYPES, DEFAULT_LEX, DEFAULT_LEXICONS
 from spacy.tokens import Doc, Token
 from spacy.matcher import PhraseMatcher
 
-ACCEPTABLE_TYPES = ['ORG']
 
 class Lexicon(object):
 
-    def __init__(self, nlp, lexicons="fe fi dr if lm".split(), prune=False):
+    def __init__(self, nlp, lexicons=DEFAULT_LEXICONS, prune=False):
         extend_token()
         self.nlp = nlp
         self.lexicons = lexicons
