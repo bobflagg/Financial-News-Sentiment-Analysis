@@ -13,7 +13,9 @@ def project(doc):
 
             
 def compute_feature(token): 
-    if token._.lex == DEFAULT_LEX: return "%s_%s" % (token._.lex, token.text)
+    if token._.lex == DEFAULT_LEX: 
+        return token.text
+        #return "%s_%s" % (token._.lex, token.text)
     return token._.lps
 
 
