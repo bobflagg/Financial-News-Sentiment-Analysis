@@ -16,3 +16,4 @@ in Dutch News Text]()
 8. [Sentence-Level Sentiment Analysis of Financial News Using Distributed Text
 Representations and Multi-Instance Learning](https://arxiv.org/pdf/1901.00400.pdf)
 9. [Sentiment Labelled Sentences Data Set](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
+10. [WHEN WORDS MATTER MOST: TAILORING DOMAIN-SPECIFIC DICTIONARIES WITH DECISION ANALYTICS](http://www.fox.temple.edu/conferences/cist/papers/Session%205B/CIST_2015_5B_3.pdf)
