@@ -15,15 +15,24 @@ def project(doc):
 def compute_feature(token): 
     if token._.lex == DEFAULT_LEX: 
         return token.text
-        #return "%s_%s" % (token._.lex, token.text)
     return token._.lps
+
+            
+def append_features(features, token): 
+    if token._.lex == DEFAULT_LEX: 
+        features.append(token.text)
+    else:
+        if token._.lex != 'en':
+            features.extend([w.lower() for w in token.text.split()])
+        features.append(token._.lps)
 
 
 class FeatureExtractor(object):
 
-    def __init__(self, lexicon, detectors):
+    def __init__(self, lexicon, detectors, include_words=False):
         self.lexicon = lexicon
         self.detectors = detectors
+        self.include_words = include_words
 
     def __call__(self, text):
         doc = self.lexicon(text)
@@ -34,6 +43,10 @@ class FeatureExtractor(object):
         return doc, self.compute_features(doc, lex2tokens)
 
     def compute_features(self, doc, lex2tokens):
+        if self.include_words:
+            features = []
+            for token in doc: append_features(features, token)
+            return features
         return [compute_feature(token) for token in doc]
 
             
