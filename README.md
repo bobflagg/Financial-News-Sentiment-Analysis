@@ -11,7 +11,7 @@ Learning](https://www.researchgate.net/profile/Nicolas_Proellochs/publication/30
 in Dutch News Text]()
 4. [Economic event detection in company-specific news text](https://biblio.ugent.be/publication/8570479/file/8573942.pdf)<br/>Gilles Jacobs, Els Lefever and Veronique Hoste. (2018)
 <br/>*Presents a dataset and supervised classification approach for economic event detection in English news articles.*
-<br/>**Code**:[SENTiVENT: Company-specific event detection in economic news](https://github.com/GillesJ/sentivent-economic-event-detection)
+<br/>**Code**: [SENTiVENT: Company-specific event detection in economic news](https://github.com/GillesJ/sentivent-economic-event-detection)
 <br/>**Dataset**: [SentiFM company-specific economic news event dataset](https://osf.io/enu2k/)
 5. [Enhancing Sentiment Analysis of Financial News by Detecting Negation Scopes](https://dl.acm.org/citation.cfm?id=2761494)
 6. [Evaluating Sentiment in Financial News Articles](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.457.6544&rep=rep1&type=pdf)
