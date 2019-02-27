@@ -15,7 +15,9 @@ in Dutch News Text]()
 6. [Evaluation of News-Based Trading Strategies](https://pdfs.semanticscholar.org/2f42/da35a94692197c43f76acdc134b46698bc6c.pdf?_ga=2.147591927.1717128319.1551212256-746113903.1548417744)
 7. [Financial Sentiment Analysis Using Machine Learning Techniques](https://pdfs.semanticscholar.org/100f/ef8fb36d71b096a57d9f463b3ad11c86930e.pdf)
 8. [Packed Feelings and Ordered Sentiments: Sentiment Parsing with Quasi-compositional Polarity Sequencing and Compression](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.472.3616&rep=rep1&type=pdf)
-9. [Sentence-Level Sentiment Analysis of Financial News Using Distributed Text
-Representations and Multi-Instance Learning](https://arxiv.org/pdf/1901.00400.pdf)
+9. [Sentence-Level Sentiment Analysis of Financial News](https://arxiv.org/pdf/1901.00400.pdf)<br/>
+Bernhard Lutz, Nicolas Prollochs and Dirk Neumann. (2018)<br/>
+*This uses distributed text representations and multi-instance learning to transfer sentiment from the document-level to the sentence-level.*<br/>
+Dataset: [Sentence Level Sentiment Financial News Dataset](https://github.com/InformationSystemsFreiburg/SentenceLevelSentimentFinancialNews)
 10. [Sentiment Labelled Sentences Data Set](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
 11. [WHEN WORDS MATTER MOST: TAILORING DOMAIN-SPECIFIC DICTIONARIES WITH DECISION ANALYTICS](http://www.fox.temple.edu/conferences/cist/papers/Session%205B/CIST_2015_5B_3.pdf)
