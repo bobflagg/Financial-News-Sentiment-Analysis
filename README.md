@@ -10,7 +10,7 @@ Learning](https://www.researchgate.net/profile/Nicolas_Proellochs/publication/30
 2. [A Classification-based Approach to Economic Event Detection
 in Dutch News Text]()
 3. [Economic event detection in company-specific news text](https://biblio.ugent.be/publication/8570479/file/8573942.pdf)<br/>Gilles Jacobs, Els Lefever and Veronique Hoste. (2018)<br/>*Presents a dataset and supervised classification approach for economic event detection in English news articles.*<br/>
-Dataset: [SentiFM company-specific economic news event dataset](https://osf.io/enu2k/)
+**Dataset**: [SentiFM company-specific economic news event dataset](https://osf.io/enu2k/)
 4. [Enhancing Sentiment Analysis of Financial News by Detecting Negation Scopes](https://dl.acm.org/citation.cfm?id=2761494)
 5. [Evaluating Sentiment in Financial News Articles](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.457.6544&rep=rep1&type=pdf)
 6. [Evaluation of News-Based Trading Strategies](https://pdfs.semanticscholar.org/2f42/da35a94692197c43f76acdc134b46698bc6c.pdf?_ga=2.147591927.1717128319.1551212256-746113903.1548417744)
@@ -19,6 +19,6 @@ Dataset: [SentiFM company-specific economic news event dataset](https://osf.io/e
 9. [Sentence-Level Sentiment Analysis of Financial News](https://arxiv.org/pdf/1901.00400.pdf)<br/>
 Bernhard Lutz, Nicolas Prollochs and Dirk Neumann. (2018)<br/>
 *Uses distributed text representations and multi-instance learning to transfer sentiment from the document-level to the sentence-level.*<br/>
-Dataset: [Sentence Level Sentiment Financial News Dataset](https://github.com/InformationSystemsFreiburg/SentenceLevelSentimentFinancialNews)
+**Dataset**: [Sentence Level Sentiment Financial News Dataset](https://github.com/InformationSystemsFreiburg/SentenceLevelSentimentFinancialNews)
 10. [Sentiment Labelled Sentences Data Set](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
 11. [WHEN WORDS MATTER MOST: TAILORING DOMAIN-SPECIFIC DICTIONARIES WITH DECISION ANALYTICS](http://www.fox.temple.edu/conferences/cist/papers/Session%205B/CIST_2015_5B_3.pdf)
