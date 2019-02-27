@@ -21,5 +21,7 @@ in Dutch News Text]()
 Bernhard Lutz, Nicolas Prollochs and Dirk Neumann. (2018)<br/>
 *Uses distributed text representations and multi-instance learning to transfer sentiment from the document-level to the sentence-level.*<br/>
 **Dataset**: [Sentence Level Sentiment Financial News Dataset](https://github.com/InformationSystemsFreiburg/SentenceLevelSentimentFinancialNews)
-11. [Sentiment Labelled Sentences Data Set](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
+11. [From Group to Individual Labels using Deep Features](http://mdenil.com/media/papers/2015-deep-multi-instance-learning.pdf)
+<br/>Dimitrios Kotzias1, Misha Denil, Nando De Freitas and Padhraic Smyth. (2015)
+<br/>**Dataset**: [Sentiment Labelled Sentences Data Set](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
 12. [WHEN WORDS MATTER MOST: TAILORING DOMAIN-SPECIFIC DICTIONARIES WITH DECISION ANALYTICS](http://www.fox.temple.edu/conferences/cist/papers/Session%205B/CIST_2015_5B_3.pdf)
