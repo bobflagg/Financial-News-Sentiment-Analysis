@@ -1,6 +1,6 @@
 # Financial-News-Sentiment-Analysis
 
-A Python application for detecting sentiment in financial news based on the paper [Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts](https://arxiv.org/abs/1307.5336).
+A Python application for detecting sentiment in financial news.
 
 ## Resources
 
@@ -19,6 +19,9 @@ in Dutch News Text]()
 6. [Evaluating Sentiment in Financial News Articles](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.457.6544&rep=rep1&type=pdf)
 7. [Evaluation of News-Based Trading Strategies](https://pdfs.semanticscholar.org/2f42/da35a94692197c43f76acdc134b46698bc6c.pdf?_ga=2.147591927.1717128319.1551212256-746113903.1548417744)
 8. [Financial Sentiment Analysis Using Machine Learning Techniques](https://pdfs.semanticscholar.org/100f/ef8fb36d71b096a57d9f463b3ad11c86930e.pdf)
+9. [Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts](https://arxiv.org/abs/1307.5336)
+   <br/>Pekka Malo, Ankur Sinha, Pyry Takala, Pekka Korhonen and Jyrki Wallenius. (2013)
+   <br/> *Investigates how semantic orientations can be better detected in financial and economic news by accommodating the overall phrase-structure information and domain-specific use of language.*
 9. [Neural Network for Automatic Negation Detection](https://github.com/ffancellu/NegNN)
 <br/>The code implements a feed-forward NN (/feed_forward) and a BiLSTM(/bilstm_class or /bilstm) to perform automatic negation scope detection.
 9. [Packed Feelings and Ordered Sentiments: Sentiment Parsing with Quasi-compositional Polarity Sequencing and Compression](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.472.3616&rep=rep1&type=pdf)
