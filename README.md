@@ -7,6 +7,8 @@ A Python application for detecting sentiment in financial news based on the pape
 1. [Aspect-Based-Sentiment-Analysis-on-Financial-News-and-Posts](https://github.com/simra-shahid/Aspect-Based-Sentiment-Analysis-on-Financial-News-and-Posts)
 2. [Detecting Negation Scopes for Financial News Sentiment Using Reinforcement
 Learning](https://www.researchgate.net/profile/Nicolas_Proellochs/publication/300410797_Detecting_Negation_Scopes_for_Financial_News_Sentiment_Using_Reinforcement_Learning/links/5b683ba545851584787f28f0/Detecting-Negation-Scopes-for-Financial-News-Sentiment-Using-Reinforcement-Learning.pdf?_sg%5B0%5D=WKrQdyfAiSI9J3OEh6_teHRmPKBe6yumFVR9PL7mGDWNKRj8qK4Ew3EVqjFp8_IOKvuBUBH2X0DLj2l3b-q_Qg.oBJTY8Kml-IVu4mBKmmZWKb5EESMGt5GyISlEWLlisNThP2p6OXwcwRUqo3rK3LEgjZQ_OGaDMauV-wCRF-Y6g&_sg%5B1%5D=x1R00Dysaa2M1vHn3DTpJzLXpNrP2n5OOfYgl4EYHFtZn6JvSFf-0bk_7niwTFlkfQAE8fQo0Vzn3GCqcig3koQmsq78xhwQefcm1FSgRkIp.oBJTY8Kml-IVu4mBKmmZWKb5EESMGt5GyISlEWLlisNThP2p6OXwcwRUqo3rK3LEgjZQ_OGaDMauV-wCRF-Y6g&_iepl=)
+<br/>Nicolas Prollochs, Stefan Feuerriegel and Dirk Neumann. 2016.
+<br/>Uses reinforcement learning to detect negation scopes in financial news to improve sentiment analysis accuracy.
 3. [A Classification-based Approach to Economic Event Detection
 in Dutch News Text]()
 4. [Economic event detection in company-specific news text](https://biblio.ugent.be/publication/8570479/file/8573942.pdf)<br/>Gilles Jacobs, Els Lefever and Veronique Hoste. (2018)
