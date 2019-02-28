@@ -19,6 +19,8 @@ in Dutch News Text]()
 6. [Evaluating Sentiment in Financial News Articles](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.457.6544&rep=rep1&type=pdf)
 7. [Evaluation of News-Based Trading Strategies](https://pdfs.semanticscholar.org/2f42/da35a94692197c43f76acdc134b46698bc6c.pdf?_ga=2.147591927.1717128319.1551212256-746113903.1548417744)
 8. [Financial Sentiment Analysis Using Machine Learning Techniques](https://pdfs.semanticscholar.org/100f/ef8fb36d71b096a57d9f463b3ad11c86930e.pdf)
+9. [Neural Network for Automatic Negation Detection](https://github.com/ffancellu/NegNN)
+<br/>The code implements a feed-forward NN (/feed_forward) and a BiLSTM(/bilstm_class or /bilstm) to perform automatic negation scope detection.
 9. [Packed Feelings and Ordered Sentiments: Sentiment Parsing with Quasi-compositional Polarity Sequencing and Compression](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.472.3616&rep=rep1&type=pdf)
 10. [Sentence-Level Sentiment Analysis of Financial News](https://arxiv.org/pdf/1901.00400.pdf)<br/>
 Bernhard Lutz, Nicolas Prollochs and Dirk Neumann. (2018)<br/>
