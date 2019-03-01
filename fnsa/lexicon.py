@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from fnsa.util import ACCEPTABLE_TYPES, DEFAULT_LEX, DEFAULT_LEXICONS
+from fnsa.util import ACCEPTABLE_TYPES, DEFAULT_LEX, DEFAULT_LEXICONS, EXTRACTED_ENTITY_LEX
+import os
 from spacy.tokens import Doc, Token
 from spacy.matcher import PhraseMatcher
 
@@ -18,7 +19,7 @@ class Lexicon(object):
     def __call__(self, text):
         doc = self.nlp(text)
         prepare(doc, self.lexicons)
-        for e in doc.ents: store_match(doc, 'en', e.label_.lower()[:3], e.start, e.end, -1, e.label_ in ACCEPTABLE_TYPES)
+        for e in doc.ents: store_match(doc, EXTRACTED_ENTITY_LEX, e.label_.lower()[:3], e.start, e.end, -1, e.label_ in ACCEPTABLE_TYPES)
         self.match(doc)
         self.merge(doc)
         return doc
@@ -37,7 +38,7 @@ class Lexicon(object):
                 seen |= set(range(start, end))
                 doc[start]._.lex = lex
                 doc[start]._.category = iid
-                if lex == 'en':
+                if lex == EXTRACTED_ENTITY_LEX:
                     doc[start]._.index = index
                     doc[start]._.accepted = accepted
                 entries.append(item)
@@ -96,7 +97,8 @@ class Matcher():
     def __init__(self, nlp, lexicon, seen):
         self.nlp = nlp
         self.lexicon = lexicon
-        path = "./fnsa/lexicons/%s.tsv" % lexicon
+        directory = os.path.dirname(os.path.abspath(__file__))    
+        path = "%s/lexicons/%s.tsv" % (directory, lexicon)
         detection_map = self.load(path)
         self.matcher = PhraseMatcher(nlp.vocab)
         for category, phrases in detection_map.items():

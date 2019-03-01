@@ -1,0 +1,27 @@
+Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts 
+Pekka Malo, Ankur Sinha, Pyry Takala, Pekka Korhonen and Jyrki Wallenius. (2013) 
+
+Investigates how semantic orientations can be better detected in financial and 
+economic news by accommodating the overall phrase-structure information and 
+domain-specific use of language.
+
+1. Introduction ............................................................  1
+2. Related work and contributions ..........................................  2
+	- Recent developments in financial domain
+	- Contributions
+		- Establishment of a phrase-bank for financial and economic news texts
+		- Introduction of verbs and directional expressions to a finance lexicon
+		- Linear Phrase Structure (LPS) model for semantic orientations
+3. Semantic orientations in economic texts .................................  3
+	- Domain-adjusted lexicon entries
+		- General expressions with polarity
+		- Financial entities
+		- Directionalities and other polarity influencers
+	- Entity detection and pruning
+		- Entity detection rules
+		- Entity pruning rules
+4. Linearized Phrase-Structure Model .......................................  5
+I. Introduction ............................................................  1
+I. Introduction ............................................................  1
+I. Introduction ............................................................  1
+I. Introduction ............................................................  1

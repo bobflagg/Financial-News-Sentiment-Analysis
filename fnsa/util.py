@@ -3,7 +3,9 @@
 from nltk.tree import Tree
 
 ACCEPTABLE_TYPES = ['ORG']
+CODE_TO_SENTIMENT = {-1:'-', 0:'=', 1:'+'}
 DEFAULT_LEX = 'nd'
+EXTRACTED_ENTITY_LEX = 'xe'
 DEFAULT_LEXICONS = "fe fi dr if lm".split()
 
 def build_lex2tokens(doc):
@@ -14,6 +16,12 @@ def build_lex2tokens(doc):
         lex2tokens[lex].append(token)
     return lex2tokens
 
+def correct_confidence(index):
+    x = X[index]
+    probs = classifier.predict_proba([x])[0]
+    position = code2position[y[index]]
+    return probs[position]    
+
 def to_nltk_tree(node, include_punctuation=False):
     # https://stackoverflow.com/questions/36610179/how-to-get-the-dependency-tree-with-spacy
     if node.n_lefts + node.n_rights > 0:
@@ -22,6 +30,12 @@ def to_nltk_tree(node, include_punctuation=False):
             [to_nltk_tree(child) for child in node.children if include_punctuation or child.pos_ != 'PUNCT'])
     else:
         return node.orth_
+
+def show_features(sentence, extractor):
+    doc, features = extractor(sentence)
+    show(doc, index=None, include_text=True, include_tree=True)
+    print("FEATURES: [%s]" % ", ".join(features))
+    return doc
 
 def show_tree(doc):
     sent = list(doc.sents)[0]

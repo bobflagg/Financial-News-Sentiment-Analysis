@@ -5,6 +5,13 @@ import math
 import numpy as np
 
 
+def score_candidate(graph, source, candidate):
+    f = get_distance(graph, source, candidate)
+    b = get_distance(graph, candidate, source)
+    d = min(f, b)
+    return d
+
+
 class ScopeDetector(object):
 
     def __init__(self, name, max_delta=100):
@@ -14,21 +21,17 @@ class ScopeDetector(object):
     def __call__(self, doc, graph, lex2tokens):
         sources = self.get_sources(doc, lex2tokens)
         targets = self.get_targets(doc, lex2tokens)
+        scores = []
         for source in sources:
             candidates = [target for target in targets if np.abs(target.i - source.i) < self.max_delta]
-            self.select(graph, source, candidates)
-
-    def select(self, graph, source, candidates):
-        closest = None
-        shortest_distance = math.inf
-        for candidate in candidates:
-            f = get_distance(graph, source, candidate)
-            b = get_distance(graph, candidate, source)
-            d = min(f, b)
-            if d < shortest_distance:
-                shortest_distance = d
-                closest = candidate
-        if closest: self.apply(source, closest)
+            for candidate in candidates:
+                scores.append((source, candidate, score_candidate(graph, source, candidate), np.abs(candidate.i - source.i)))
+        scores = sorted(scores, key=lambda item: item[-2:])
+        assigned = set([])
+        for source, candidate, *rest in scores:
+            if candidate.i in assigned: continue
+            self.apply(source, candidate)
+            assigned.add(candidate.i)
 
     def get_sources(self, doc, lex2tokens):
         raise NotImplementedError("Subclasses must implement this method!")
@@ -39,7 +42,7 @@ class ScopeDetector(object):
     def apply(self, source, target):
         raise NotImplementedError("Subclasses must implement this method!")
 
-
+        
 class SimpleScopeDetector(ScopeDetector):
 
     def __init__(self, source_lex, target_lex, max_delta=100):

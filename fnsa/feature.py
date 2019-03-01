@@ -2,12 +2,12 @@
 
 from fnsa.graph import make_graph
 from fnsa.lexicon import get_en2scope
-from fnsa.util import build_lex2tokens, DEFAULT_LEX
+from fnsa.util import build_lex2tokens, DEFAULT_LEX, EXTRACTED_ENTITY_LEX
 
 
 def project(doc):
     for token in doc:
-        if token._.lex in ['dr', 'en', 'if']: token._.lps = '%s_%s' % (token._.lex, token._.category)
+        if token._.lex in ['dr', EXTRACTED_ENTITY_LEX, 'if']: token._.lps = '%s_%s' % (token._.lex, token._.category)
         elif token._.lex in ['fi', 'lm']: token._.lps = '%s_%s_%s' % (token._.lex, token._.category, token._.influence)
         elif token._.lex == 'fe': token._.lps = '%s_%s_%s_%s' % (token._.lex, token._.category, token._.direction, token._.influence)
 
@@ -22,7 +22,7 @@ def append_features(features, token):
     if token._.lex == DEFAULT_LEX: 
         features.append(token.text)
     else:
-        if token._.lex != 'en':
+        if token._.lex != EXTRACTED_ENTITY_LEX:
             features.extend([w.lower() for w in token.text.split()])
         features.append(token._.lps)
 
@@ -56,7 +56,7 @@ class EntityFeatureExtractor(FeatureExtractor):
         en_scope_map = get_en2scope(doc)
         entities = []
         features = []
-        for entity in lex2tokens.get('en', []):
+        for entity in lex2tokens.get(EXTRACTED_ENTITY_LEX, []):
             if entity._.accepted:
                 entities.append(entity)
                 tokens = [doc[j] for j in en_scope_map.get(entity.i, set([]))]

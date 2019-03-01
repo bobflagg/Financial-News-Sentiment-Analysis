@@ -3,13 +3,14 @@
 from fnsa.graph import get_distance, get_path
 from fnsa.lexicon import get_en2scope
 from fnsa.scope import ScopeDetector
+from fnsa.util import EXTRACTED_ENTITY_LEX
 import math
 import numpy as np
 import re
 
 class ENScopeDetector(ScopeDetector):
     def __init__(self, max_delta=100, window=4):
-        super(ENScopeDetector, self).__init__("en", max_delta=max_delta)
+        super(ENScopeDetector, self).__init__(EXTRACTED_ENTITY_LEX, max_delta=max_delta)
         self.window = window
 
     def __call__(self, doc, graph, lex2tokens):
@@ -23,7 +24,7 @@ class ENScopeDetector(ScopeDetector):
         closest_entity_map = {}
         optimal_entity_map = {}
 
-        entities = [e for e in lex2tokens.get('en', []) if e._.accepted]
+        entities = [e for e in lex2tokens.get(EXTRACTED_ENTITY_LEX, []) if e._.accepted]
         for entity in entities:
             # Limit to reasonable close tokens for efficiency:
             targets = [target for target in doc if np.abs(target.i - entity.i) < self.max_delta]

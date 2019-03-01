@@ -2,7 +2,11 @@
 
 import os
 
-def load(fname='all-agree.tsv', directory='./data'):
+def load(fname='all-agree.tsv', directory=None):
+    if directory is None:
+        directory = os.path.dirname(os.path.abspath(__file__))    
+        directory = "/".join(directory.split('/')[:-2])
+        directory = os.path.join(directory, 'data')
     path = os.path.join(directory, fname)
     corpus = []
     with open(path, mode='r', encoding='UTF-8') as ifp:
