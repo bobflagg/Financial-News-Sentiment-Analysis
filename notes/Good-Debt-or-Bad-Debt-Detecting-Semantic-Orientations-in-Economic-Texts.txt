@@ -21,7 +21,22 @@ domain-specific use of language.
 		- Entity detection rules
 		- Entity pruning rules
 4. Linearized Phrase-Structure Model .......................................  5
-I. Introduction ............................................................  1
-I. Introduction ............................................................  1
-I. Introduction ............................................................  1
-I. Introduction ............................................................  1
+	- Extraction of entities with semantic orientation
+	- Phrase Structure Projection
+	- Learning mechanism
+5. Annotating financial news ...............................................  9
+	- Building the phrase bank
+	- Annotation task and instructions
+	- Analysis of the phrase bank
+	- Definition of the Gold Standard
+6. Experiments and results ................................................. 10
+	- Choice of benchmark algorithms
+		- Wordcount MPQA (W-MPQA)
+		- Wordcount Loughran and McDonald
+		- Quasi-compositional polarity sequence model with MPQA
+		- LPS model without entity pruning rules (R-LPS)
+		- LPS
+	- Performance comparison
+	- Sources of error in LPS models and directions for development
+7. Conclusions ............................................................. 15
+8. References .............................................................. 16
