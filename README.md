@@ -22,6 +22,7 @@ in Dutch News Text]()
 9. [Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts](https://arxiv.org/abs/1307.5336)
    <br/>Pekka Malo, Ankur Sinha, Pyry Takala, Pekka Korhonen and Jyrki Wallenius. (2013)
    <br/> *Investigates how semantic orientations can be better detected in financial and economic news by accommodating the overall phrase-structure information and domain-specific use of language.*
+   <br/> **Notes**: [Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts](https://github.com/bobflagg/Financial-News-Sentiment-Analysis/blob/master/notes/Good-Debt-or-Bad-Debt-Detecting-Semantic-Orientations-in-Economic-Texts.txt)
 9. [Neural Network for Automatic Negation Detection](https://github.com/ffancellu/NegNN)
 <br/>The code implements a feed-forward NN (/feed_forward) and a BiLSTM(/bilstm_class or /bilstm) to perform automatic negation scope detection.
 9. [Packed Feelings and Ordered Sentiments: Sentiment Parsing with Quasi-compositional Polarity Sequencing and Compression](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.472.3616&rep=rep1&type=pdf)
