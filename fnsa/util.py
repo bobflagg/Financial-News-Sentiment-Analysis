@@ -7,6 +7,7 @@ CODE_TO_SENTIMENT = {-1:'-', 0:'=', 1:'+'}
 DEFAULT_LEX = 'nd'
 EXTRACTED_ENTITY_LEX = 'xe'
 DEFAULT_LEXICONS = "fe fi dr if lm".split()
+DEFAULT_POS_LEXICONS = "dr".split()
 STRICT_LEXICONS = set("fe fi lm xe".split())
 
 class Tokenizer(object):

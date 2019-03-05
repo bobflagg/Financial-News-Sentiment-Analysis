@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from fnsa.util import ACCEPTABLE_TYPES, DEFAULT_LEX, DEFAULT_LEXICONS, EXTRACTED_ENTITY_LEX
+from fnsa.util import ACCEPTABLE_TYPES, DEFAULT_LEX, DEFAULT_LEXICONS, DEFAULT_POS_LEXICONS, EXTRACTED_ENTITY_LEX
 import os
 from spacy.tokens import Doc, Token
 from spacy.matcher import PhraseMatcher
@@ -8,13 +8,18 @@ from spacy.matcher import PhraseMatcher
 
 class Lexicon(object):
 
-    def __init__(self, nlp, lexicons=DEFAULT_LEXICONS, prune=False):
+    def __init__(self, nlp, lexicons=DEFAULT_LEXICONS, pos_lexicons=DEFAULT_POS_LEXICONS, prune=False):
         extend_token()
         self.nlp = nlp
         self.lexicons = lexicons
+        self.pos_lexicons = pos_lexicons
         self.prune = prune
         seen = set([])
-        self.matchers = [Matcher(nlp, lexicon, seen) for lexicon in lexicons]
+        self.lexicon2matcher = {}
+        for lexicon in lexicons:
+            if lexicon in pos_lexicons: matcher = POSMatcher(nlp, lexicon, seen)
+            else:  matcher = Matcher(nlp, lexicon, seen)
+            self.lexicon2matcher[lexicon] = matcher
 
     def __call__(self, text):
         doc = self.nlp(text)
@@ -26,7 +31,7 @@ class Lexicon(object):
         return doc
 
     def match(self, doc):
-        for matcher in self.matchers: matcher(doc)
+        for matcher in self.lexicon2matcher.values(): matcher(doc)
 
     def merge(self, doc):
             lex_entries = list(get_entries(doc))
@@ -36,6 +41,13 @@ class Lexicon(object):
             for item in lex_entries:
                 lex, iid, start, end, index, accepted = item
                 if start in seen or end - 1 in seen: continue
+                if lex in self.pos_lexicons:
+                    match2pos = self.lexicon2matcher[lex].match2pos
+                    span = doc[start:end]
+                    phrase = span.text
+                    if phrase in match2pos:
+                        pos = " ".join([token.pos_ for token in span])
+                        if pos != match2pos[phrase]: continue
                 seen |= set(range(start, end))
                 doc[start]._.lex = lex
                 doc[start]._.category = iid
@@ -119,7 +131,7 @@ class Matcher():
             if line.startswith('#'): continue
             line = line.strip()
             if line:
-                phrase, category = line.split('\t')
+                phrase, category = self.load_line(line)
                 if category == 'Deleted': continue
                 if category not in detection_map: detection_map[category] = []
                 phrase = self.nlp.tokenizer(phrase)
@@ -127,6 +139,22 @@ class Matcher():
         fp.close()
         return detection_map
 
+    def load_line(self, line):
+        phrase, category = line.split('\t')
+        return phrase, category       
+
+
+class POSMatcher(Matcher):
+
+    def __init__(self, nlp, lexicon, seen):
+        self.match2pos = dict()
+        super(POSMatcher, self).__init__(nlp, lexicon, seen)
+        
+    def load_line(self, line):
+        phrase, pos, category = line.split('\t')
+        if pos != "*": self.match2pos[phrase] = pos
+        return phrase, category
+        
     
 def prepare(doc, lexicons):
     doc.user_data['entries'] = set([])
