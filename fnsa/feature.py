@@ -2,8 +2,12 @@
 
 from fnsa.graph import make_graph
 from fnsa.lexicon import get_en2scope
-from fnsa.util import build_lex2tokens, DEFAULT_LEX, EXTRACTED_ENTITY_LEX
+from fnsa.util import build_lex2tokens, DEFAULT_LEX, EXTRACTED_ENTITY_LEX, STRICT_LEXICONS
 
+VERY_STRICT_F_TYPE = 0
+STRICT_F_TYPE = 1
+REGULAR_F_TYPE = 2
+FLUSH_F_TYPE = 3
 
 def project(doc):
     for token in doc:
@@ -29,10 +33,10 @@ def append_features(features, token):
 
 class FeatureExtractor(object):
 
-    def __init__(self, lexicon, detectors, include_words=False):
+    def __init__(self, lexicon, detectors, ftype=FLUSH_F_TYPE):
         self.lexicon = lexicon
         self.detectors = detectors
-        self.include_words = include_words
+        self.type = ftype
 
     def __call__(self, text):
         doc = self.lexicon(text)
@@ -43,10 +47,14 @@ class FeatureExtractor(object):
         return doc, self.compute_features(doc, lex2tokens)
 
     def compute_features(self, doc, lex2tokens):
-        if self.include_words:
+        if self.type == FLUSH_F_TYPE:
             features = []
             for token in doc: append_features(features, token)
             return features
+        if self.type == STRICT_F_TYPE:
+            return [token._.lps for token in doc if token._.lex in STRICT_LEXICONS]
+        if self.type == VERY_STRICT_F_TYPE:
+            return [token._.lps for token in doc if token._.lex in STRICT_LEXICONS and token._.lps.split('_')[-2] in ['-', '+']]
         return [compute_feature(token) for token in doc]
 
             

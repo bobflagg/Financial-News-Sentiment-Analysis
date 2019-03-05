@@ -15,10 +15,16 @@
 source activate fsa
 export PYTHONPATH=/opt/code/github/Financial-News-Sentiment-Analysis/python
 cd ../util
-python prepare-classification-data.py --dataset all-agree
-python prepare-classification-data.py --dataset all-agree --include-words
+python prepare-classification-data.py --dataset all-agree --ftype very-strict &
+python prepare-classification-data.py --dataset all-agree --ftype strict &
+python prepare-classification-data.py --dataset all-agree --ftype regular &
+python prepare-classification-data.py --dataset all-agree --ftype flush &
 
-python prepare-classification-data.py --dataset ad-hoc
-python prepare-classification-data.py --dataset ad-hoc --include-words
+python prepare-classification-data.py --dataset ad-hoc --ftype very-strict &
+python prepare-classification-data.py --dataset ad-hoc --ftype strict &
+python prepare-classification-data.py --dataset ad-hoc --ftype regular &
+python prepare-classification-data.py --dataset ad-hoc --ftype flush &
 
+wait
+echo "DONE PREPARING DATA!!!"
 

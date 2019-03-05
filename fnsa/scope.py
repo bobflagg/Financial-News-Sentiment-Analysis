@@ -27,11 +27,13 @@ class ScopeDetector(object):
             for candidate in candidates:
                 scores.append((source, candidate, score_candidate(graph, source, candidate), np.abs(candidate.i - source.i)))
         scores = sorted(scores, key=lambda item: item[-2:])
-        assigned = set([])
+        source_assigned = set([])
+        target_assigned = set([])
         for source, candidate, *rest in scores:
-            if candidate.i in assigned: continue
+            if candidate.i in source_assigned or source.i in target_assigned: continue
             self.apply(source, candidate)
-            assigned.add(candidate.i)
+            source_assigned.add(candidate.i)
+            target_assigned.add(source.i)
 
     def get_sources(self, doc, lex2tokens):
         raise NotImplementedError("Subclasses must implement this method!")
